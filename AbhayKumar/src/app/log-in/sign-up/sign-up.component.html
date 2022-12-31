@@ -1,17 +1,15 @@
-<p>sign-up works!</p>
+<mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>
 
 <div>
-  <p class="_green-text">if you are already user , Please  Sign In</p>
   <button  mat-stroked-button  [routerLink]="'/logIn'" >Back</button>
 </div>
 
 
 <div class="_flex-box">
     <div class="artwork _w-50"></div>
-
-    
     <div class="_flex-box _w-30 ">
       <form #signUpForm="ngForm" [formGroup]="userInfoSignUp" (ngSubmit)="onSignUp()" >
+
         <div class="name _flex-box _jc-sb">
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
@@ -21,7 +19,6 @@
                 <mat-error *ngIf="userInfoSignUp.get('firstName')?.hasError('required')">
                     Please write First Name</mat-error>
             </mat-form-field>
-
             <mat-form-field appearance="outline">
                 <mat-label>Last Name</mat-label>
                 <input matInput type="text" formControlName="lastName" >
@@ -52,6 +49,7 @@
             <mat-form-field appearance="outline" >
                 <mat-label>Password</mat-label>
                 <input matInput type="password" formControlName="enterPassword" >
+                <!-- <mat-icon matSuffix>visibility</mat-icon> -->
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('required')">This field is required.</mat-error>
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('invalidContent')">
                     At least 8 - 15 characters,
@@ -60,7 +58,6 @@
                     1 lowercase letter,
                     and 1 number and any of this special characters $ % # * & - . 
                 </mat-error>
-                    <mat-icon matSuffix fontIcon="home"></mat-icon>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Confirm Password</mat-label>
