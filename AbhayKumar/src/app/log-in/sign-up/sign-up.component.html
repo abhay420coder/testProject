@@ -49,7 +49,6 @@
             <mat-form-field appearance="outline" >
                 <mat-label>Password</mat-label>
                 <input matInput type="password" formControlName="enterPassword" >
-                <!-- <mat-icon matSuffix>visibility</mat-icon> -->
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('required')">This field is required.</mat-error>
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('invalidContent')">
                     At least 8 - 15 characters,

@@ -14,24 +14,13 @@
     padding-right: 8px;
   }
   
+.visibility{
+  background-image: url('../../../assets/icons/eye-svgrepo-com.svg');
+  background-repeat: no-repeat;
+
+}
 
 
-  // ::ng-deep .active-unlocks .mat-expansion-panel{
-  //     margin: 0;
-  //     box-shadow: none;
-  //     border: 1px solid $border-color;
-  //     &:not(:last-child){
-  //         border-bottom: none;
-  //     }
-  //     .mat-content{
-  //         height: 100%;
-  //     }
-  //     .mat-badge-content{
-  //         top: 0;
-  //         right: -20px !important;
-  //         background-color: $status-red;
-  //     }
-  // }
   .artwork{
       background-image: url('../../../assets/images/undraw_forms_re_pkrt.svg');
       background-attachment: fixed;
