@@ -15,19 +15,19 @@
         <div class="name _flex-box _jc-sb">
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
-                <input matInput type="text" formControlName="FirstName" (keyup)="getConsoleFirstName()">
-                <mat-error *ngIf="userInfoSignUp.get('FirstName')?.hasError('invalidContent')">
+                <input matInput type="text" formControlName="firstName">
+                <mat-error *ngIf="userInfoSignUp.get('firstName')?.hasError('invalidContent')">
                     Please put valid First Name</mat-error>
-                <mat-error *ngIf="userInfoSignUp.get('FirstName')?.hasError('required')">
+                <mat-error *ngIf="userInfoSignUp.get('firstName')?.hasError('required')">
                     Please write First Name</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Last Name</mat-label>
-                <input matInput type="text" formControlName="LastName" >
-                <mat-error *ngIf="userInfoSignUp.get('LastName')?.hasError('invalidContent')">
+                <input matInput type="text" formControlName="lastName" >
+                <mat-error *ngIf="userInfoSignUp.get('lastName')?.hasError('invalidContent')">
                     Please put valid Last Name</mat-error>
-                <mat-error *ngIf="userInfoSignUp.get('LastName')?.hasError('required')">
+                <mat-error *ngIf="userInfoSignUp.get('lastName')?.hasError('required')">
                     Please write First Name</mat-error>
             </mat-form-field>
         </div>
@@ -35,52 +35,38 @@
         <div class="main_component  _flex-box _jc-sb">
             <mat-form-field appearance="outline">
                 <mat-label>Mobile No.</mat-label>
-                <!-- <span matPrefix>+91 &nbsp;</span> -->
-                <input matInput type="text" formControlName="MobileNumber" (keyup)="getConsoleMobileNumber()">
-                <mat-error *ngIf="userInfoSignUp.get('MobileNumber')?.hasError('required')">This field is required</mat-error>
-                <mat-error *ngIf="userInfoSignUp.get('MobileNumber')?.hasError('invalidContent')">write valid Mobile number</mat-error>
-                <!-- <mat-error *ngIf="userInfoSignUp.get('MobileNumber')?.hasError('maxlength')">Mobile number should be 10 digits</mat-error> -->
-                <mat-error *ngIf="userInfoSignUp.controls['MobileNumber'].errors">Mobile number should be 10 digits</mat-error>
-                <!-- <mat-error *ngIf="userInfoSignUp.get('MobileNumber')?.hasError('pattern')">Mobile number should be valid and 10 digits</mat-error> -->
+                <input matInput type="text" formControlName="mobileNumber" >
+                <mat-error *ngIf="userInfoSignUp.get('mobileNumber')?.hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="userInfoSignUp.get('mobileNumber')?.hasError('invalidContent')">write valid Mobile number</mat-error>
+                <mat-error *ngIf="userInfoSignUp.controls['mobileNumber'].errors">Mobile number should be 10 digits</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Email Id</mat-label>
-                <input matInput type="email" formControlName="EmailId">
-                <mat-error *ngIf="userInfoSignUp.get('EmailId')?.hasError('required')">This field is required</mat-error>
-                <mat-error *ngIf="userInfoSignUp.get('EmailId')?.hasError('invalidContent')">write valid email id </mat-error>
-
+                <input matInput type="email" formControlName="emailId">
+                <mat-error *ngIf="userInfoSignUp.get('emailId')?.hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="userInfoSignUp.get('emailId')?.hasError('invalidContent')">write valid email id </mat-error>
             </mat-form-field>
         </div>
     
-        <div class="password  _flex-box _jc-sb " formGroupName="Password">
+        <div class="password  _flex-box _jc-sb " >
             <mat-form-field appearance="outline" >
                 <mat-label>Password</mat-label>
-                <input matInput type="password" formControlName="EnterPassword" >
-                <mat-error *ngIf="userInfoSignUp.get('Password')?.get('EnterPassword')?.hasError('required')">This field is required.</mat-error>
-                <mat-error *ngIf="userInfoSignUp.get('Password')?.get('EnterPassword')?.hasError('invalidContent')">
+                <input matInput type="password" formControlName="enterPassword" >
+                <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('required')">This field is required.</mat-error>
+                <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('invalidContent')">
                     At least 8 - 15 characters,
                     must contain at least 
                     1 uppercase letter,
                     1 lowercase letter,
                     and 1 number and any of this special characters $ % # * & - . 
                 </mat-error>
-                <!-- <p class="help-block" *ngIf="signUpForm.get('password').hasError('required') && signUpForm.get('password').touched">Debe ingresar una contraseña</p> -->
-                <!--                                 
-                <p class="help-block" *ngIf="signUpForm.get('confirmedPassword').hasError('required') && signUpForm.get('confirmedPassword').touched">Password must be required</p>
-                <p class="help-block" *ngIf="signUpForm.get('confirmedPassword').hasError('passwordMismatch') && signUpForm.get('confirmedPassword').touched">password does not match</p>
-                 -->
                     <mat-icon matSuffix fontIcon="home"></mat-icon>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Confirm Password</mat-label>
-                <input matInput type="password"  formControlName="ConfirmPassword">
-                <mat-error *ngIf="userInfoSignUp.get('Password')?.get('ConfirmPassword')?.hasError('required')">This field is required.</mat-error>
-                <mat-error *ngIf="userInfoSignUp.get('Password')?.get('ConfirmPassword')?.hasError('invalidContent')"> Password does not match  </mat-error>
-                <!-- <mat-error *ngIf="userInfoSignUp.get('Password')?.hasError('invalidContent')"> Password does not match  </mat-error> -->
-                <!-- <mat-error *ngIf="userInfoSignUp.controls['Password'].get('EnterPassword')?.value==userInfoSignUp.controls['Password'].get('ConfirmPassword')?.value"> Password does not match  </mat-error> -->
-                <!-- <mat-error *ngIf="userInfoSignUp.controls['Password'].invalidContent"> Password does not match  </mat-error> -->
-                <!-- <mat-error *ngIf="userInfoSignUp.get('EmailId')?.hasError('invalidContent')">write valid email id </mat-error> -->
-
+                <input matInput type="password"  formControlName="confirmPassword">
+                <mat-error *ngIf="userInfoSignUp.get('confirmPassword')?.hasError('required')">This field is required.</mat-error>
+                <mat-error *ngIf="userInfoSignUp.get('confirmPassword')?.hasError('invalidContent')"> Password does not match  </mat-error>
                 <mat-icon matSuffix fontIcon="home"></mat-icon>
             </mat-form-field>
         </div>
