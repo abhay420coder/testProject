@@ -46,6 +46,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 
 
@@ -53,7 +54,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
         // all angular material module imported started
