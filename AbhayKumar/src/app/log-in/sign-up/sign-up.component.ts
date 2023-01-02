@@ -102,7 +102,7 @@ export function contentValidatorEmailId(control: AbstractControl) {
 export function contentValidatorPassword(control: AbstractControl) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$%*\-&])[A-Za-z\d#$%*\-&]{8,15}$/;
   let value = control.value;
-  let paragraph="";
+  let paragraph=""; 
 
   let reg = false;
 
