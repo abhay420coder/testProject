@@ -51,11 +51,19 @@
                 <input matInput type="password" formControlName="enterPassword" >
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('required')">This field is required.</mat-error>
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('invalidContent')">
-                    At least 8 - 15 characters,
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value.length>7 && userInfoSignUp.controls['enterPassword'].value.length<16?'_green-text':'_red-text'">At least 8 - 15 characters</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('[A-Z]') ? '_green-text':'_red-text'">1 uppercase letter</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('[a-z]') ?'_green-text':'_red-text'">1 lowercase letter</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('[0-9]') ?'_green-text':'_red-text'">1 number</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('([#$%*\\-&])') ?'_green-text':'_red-text'">any of this special characters $ % # * & -</div>
+                    
+                    <!-- 1) At least 8 - 15 characters,
                     must contain at least 
-                    1 uppercase letter,
-                    1 lowercase letter,
-                    and 1 number and any of this special characters $ % # * & - . 
+                    2) 1 uppercase letter,
+                    3) 1 lowercase letter,
+                    4) and 1 number and 
+                    5) any of this special characters $ % # * & - .  -->
+
                 </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
@@ -68,6 +76,7 @@
         </div>
     
         <button mat-stroked-button [disabled]="userInfoSignUp.invalid"> Create Your Account </button>
+        <button mat-stroked-button > Create Your Account without disabled</button>
       </form>
     </div>
 </div>

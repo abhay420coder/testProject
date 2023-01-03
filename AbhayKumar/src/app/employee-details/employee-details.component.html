@@ -1,1 +1,73 @@
 <p>employee-details works!</p>
+<div>
+    <button  mat-stroked-button  [routerLink]="'/logIn'" >Back</button>
+</div>
+
+<div>
+    <div>
+        <div form>
+            <div formAraayFirstElement class="_flex-box">
+                <div>
+                    <input type="image" src="" alt="" formControlNames="userImage" style="height:220px; width:210px; border:5px solid black ">
+                </div>
+                <div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>User Name</mat-label>
+                            <input matInput type="text" formControlNames="userName">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>User Position</mat-label>
+                            <input matInput type="text" formControlNames="userPosition">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>User Age</mat-label>
+                            <input matInput type="text" formControlNames="userAge">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>User Gender</mat-label>
+                            <mat-select formControlNames="userGender">
+                                <mat-option value="Male">Male</mat-option>
+                                <mat-option value="Female">Female</mat-option>
+                                <mat-option value="Other">Other</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button mat-raised-button color="warn">Delete Employee</button>
+                    </div>
+                </div>
+            </div>
+            add next form array element here
+        </div>
+        <button mat-raised-button color="primary">Submit Employee Details</button>
+    </div>
+    <div>
+        <button mat-raised-button color="Accent">Add Employee</button>
+    </div>
+</div>
+
+
+
+            <!-- 
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" formControlName="firstName">
+                    <mat-error *ngIf="userInfoSignUp.get('firstName')?.hasError('invalidContent')">
+                        Please put valid First Name</mat-error>
+                    <mat-error *ngIf="userInfoSignUp.get('firstName')?.hasError('required')">
+                        Please write First Name</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" formControlName="lastName" >
+                    <mat-error *ngIf="userInfoSignUp.get('lastName')?.hasError('invalidContent')">
+                        Please put valid Last Name</mat-error>
+                    <mat-error *ngIf="userInfoSignUp.get('lastName')?.hasError('required')">
+                        Please write First Name</mat-error>
+                </mat-form-field> 
+            </div>
+            -->
