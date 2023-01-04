@@ -9,7 +9,6 @@
     <div class="artwork _w-50"></div>
     <div class="_flex-box _w-30 ">
       <form #signUpForm="ngForm" [formGroup]="userInfoSignUp" (ngSubmit)="onSignUp()" >
-
         <div class="name _flex-box _jc-sb">
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
@@ -45,28 +44,26 @@
             </mat-form-field>
         </div>
     
-        <div class="password  _flex-box _jc-sb " >
+        <div class="password  _flex-box " >
             <mat-form-field appearance="outline" > 
                 <mat-label>Password</mat-label>
                 <input matInput type="password" formControlName="enterPassword" >
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('required')">This field is required.</mat-error>
                 <mat-error *ngIf="userInfoSignUp.get('enterPassword')?.hasError('invalidContent')">
-                    <div [class]="userInfoSignUp.controls['enterPassword'].value.length>7 && userInfoSignUp.controls['enterPassword'].value.length<16?'_green-text':'_red-text'">At least 8 - 15 characters</div>
-                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('[A-Z]') ? '_green-text':'_red-text'">1 uppercase letter</div>
-                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('[a-z]') ?'_green-text':'_red-text'">1 lowercase letter</div>
-                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('[0-9]') ?'_green-text':'_red-text'">1 number</div>
-                    <div [class]="userInfoSignUp.controls['enterPassword'].value.match('([#$%*\\-&])') ?'_green-text':'_red-text'">any of this special characters $ % # * & -</div>
-                    
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value?.length>7 && userInfoSignUp.controls['enterPassword'].value?.length<16?'_green-text':'_red-text'">At least 8 - 15 characters</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value?.match('[A-Z]') ? '_green-text':'_red-text'">1 uppercase letter</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value?.match('[a-z]') ?'_green-text':'_red-text'">1 lowercase letter</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value?.match('[0-9]') ?'_green-text':'_red-text'">1 number</div>
+                    <div [class]="userInfoSignUp.controls['enterPassword'].value?.match('([#$%*\\-&])') ?'_green-text':'_red-text'">any of this special characters $ % # * & -</div>
                     <!-- 1) At least 8 - 15 characters,
                     must contain at least 
                     2) 1 uppercase letter,
                     3) 1 lowercase letter,
                     4) and 1 number and 
                     5) any of this special characters $ % # * & - .  -->
-
                 </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" style="padding-left: 20px;">
                 <mat-label>Confirm Password</mat-label>
                 <input matInput type="password"  formControlName="confirmPassword">
                 <mat-error *ngIf="userInfoSignUp.get('confirmPassword')?.hasError('required')">This field is required.</mat-error>
@@ -74,9 +71,10 @@
                 <mat-icon matSuffix fontIcon="home"></mat-icon>
             </mat-form-field>
         </div>
-    
-        <button mat-stroked-button [disabled]="userInfoSignUp.invalid"> Create Your Account </button>
-        <button mat-stroked-button > Create Your Account without disabled</button>
+   
+        <div style="margin-top:20%;">
+            <button mat-stroked-button [disabled]="userInfoSignUp.invalid"> Create Your Account </button>
+        </div>
       </form>
     </div>
 </div>

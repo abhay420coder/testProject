@@ -23,9 +23,9 @@ export class SignUPComponent implements OnInit {
   ngOnInit(): void { }
 
   onSignUp(){
-    // console.log(this.userInfoSignUp.value)
     console.log("this.userInfoSignUp.value    :-    ",this.userInfoSignUp.value);
-    // console.log("this.userInfoSignUp.get('enterPassword')    :-    ",this.userInfoSignUp.get('enterPassword'));
+    console.log("this.userInfoSignUp.get('enterPassword')    :-    ",this.userInfoSignUp.get('enterPassword'));
+    console.log("this.userInfoSignUp.get('enterPassword').value    :-    ",this.userInfoSignUp.get('enterPassword')?.value);
     // console.log("this.userInfoSignUp.controls['enterPassword'].value    :-    ",this.userInfoSignUp.controls['enterPassword'].value);
 
     this.userInfoSignUp.reset();

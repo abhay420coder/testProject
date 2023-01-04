@@ -1,0 +1,63 @@
+<div>
+    <div>
+        <form #form="ngForm" [formGroup]="employeeForm" (ngSubmit)="onSubmitForm(employeeForm)">
+            <ng-container formArrayName="employeeDetails" class="_flex-box">
+                <!-- <div>
+                    <input type="image" src="" alt="" formControlNames="userImage"
+                        style="height:220px; width:210px; border:5px solid black ">
+                </div> -->
+                <!-- <div *ngFor="let control of FormBulder_for_formGroup.controls['formArray_2']['controls'];  let i=index"> -->
+                <ng-container *ngFor="let empDetails of employeeDetails.controls; let index = index">
+                    <!-- <ng-container *ngFor="let empDetails of employeeForm.controls.employeeDetails.controls; let i = index"> -->
+
+
+
+
+                    <div formGroupName="empDetails">
+                    <!-- <div [formGroupName]="index"> -->
+
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>User Name</mat-label>
+                                <input matInput type="text" formControlName="userName">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>User Position</mat-label>
+                                <input matInput type="text" formControlName="userPosition">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>User Age</mat-label>
+                                <input matInput type="text" formControlName="userAge">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>User Gender</mat-label>
+                                <mat-select formControlName="userGender">
+                                    <mat-option value="Male">Male</mat-option>
+                                    <mat-option value="Female">Female</mat-option>
+                                    <mat-option value="Other">Other</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-raised-button color="warn" (click)="deleteEmployee(index)">Delete Employee</button>
+                        </div>
+                    </div>
+                    <!-- add next form array element here     -->
+                </ng-container>
+
+            </ng-container>
+            <button mat-raised-button color="warn">submit Form</button>
+        </form>
+
+        <!-- <button mat-raised-button color="primary">Submit Employee Details</button> -->
+    </div>
+    <div>
+        <div>
+            <button mat-mini-fab (click)="addEmployeeDetails()">
+                <mat-icon class="add-course-btn">add</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
