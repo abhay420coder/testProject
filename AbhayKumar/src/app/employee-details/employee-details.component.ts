@@ -44,11 +44,15 @@ fileToUpload: File | null = null;
     this.employeeDetails.removeAt(lessonIndex);
   }
 
+
+
   onSubmitForm(employeeForm:any){
     console.log("employeeForm :-  ",employeeForm)
     console.log("employeeForm.value :-  ",employeeForm.value)
     console.log("employeeForm.value.employeeDetails[1].userImage.value :-  ",employeeForm.value.employeeDetails[0].userImage.value)
   } 
+
+
 
   showPreview(event: any , index:any){
     this.isChanged =false;
@@ -62,29 +66,20 @@ fileToUpload: File | null = null;
       reader.readAsDataURL(files[0]);
       reader.onload=(event:any)=>{
           let imgResult= event.target.result;
-          setInterval(()=>{
+          let runInterval = 0;
+          const myInterval= setInterval(()=>{
             this.isChanged = false;
-          },3000)
-          this.employeeForm.controls.employeeDetails.controls[index].patchValue({userImage:imgResult})
+            runInterval +=1;
+            console.log("isChanged  :-  ",this.isChanged);
+            if(runInterval === 1){
+              clearInterval(myInterval);
+            }
+          },3000);
+          this.employeeForm.controls.employeeDetails.controls[index].patchValue({userImage:imgResult});
       }
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 }
 
 
@@ -115,3 +110,5 @@ export function contentValidatorAge(control: AbstractControl) {
   return null; 
 
 }
+
+
