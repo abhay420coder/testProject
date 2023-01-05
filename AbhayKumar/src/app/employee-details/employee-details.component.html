@@ -10,7 +10,10 @@
                     <!-- <ng-container *ngFor="let empDetails of employeeForm.controls.employeeDetails.controls; let index = index"> -->
                     <div [formGroupName]="index" style="margin-top:5%;">
                         <div class="_flex-box">
-                            <input type="image" [src]="employeeForm.controls.employeeDetails.controls[index].get('userImage')?.value" [alt]="index +'   '+ 'userImage'" formControlNames="userImage"
+                            <div *ngIf="isChanged" class="_pt-10 _pb-10">
+                                <mat-spinner></mat-spinner>
+                            </div>
+                            <input *ngIf="!isChanged" type="image" [src]="employeeForm.controls.employeeDetails.controls[index].get('userImage')?.value" [alt]="index +'   '+ 'userImage'" formControlNames="userImage"
                                 style="height:110px; width:150px; border:5px solid black ">
                             <input type="file" accept="image/*" (change)="showPreview($event , index)" />
                         </div>

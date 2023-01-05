@@ -10,6 +10,7 @@ import { contentValidatorText } from '../log-in/sign-up/sign-up.component'
 export class EmployeeDetailsComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
+  isChanged:boolean=false;
   ngOnInit(): void {
   }
 
@@ -50,15 +51,20 @@ fileToUpload: File | null = null;
   } 
 
   showPreview(event: any , index:any){
+    this.isChanged =false;
     console.log("event  :-  ",event);
     console.log("event.target.files  :-  ",event.target.files);
     let files = event.target.files
     this.fileToUpload = files.item(0);
     if(files){
+      this.isChanged =true;
       let reader = new FileReader();  
       reader.readAsDataURL(files[0]);
       reader.onload=(event:any)=>{
           let imgResult= event.target.result;
+          setInterval(()=>{
+            this.isChanged = false;
+          },3000)
           this.employeeForm.controls.employeeDetails.controls[index].patchValue({userImage:imgResult})
       }
     }
