@@ -10,7 +10,6 @@ import { contentValidatorText } from '../log-in/sign-up/sign-up.component'
 export class EmployeeDetailsComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
-  isChanged:boolean=false;
   isChanges : boolean[]= [];
   ngOnInit(): void {
   }
@@ -54,20 +53,13 @@ fileToUpload: File | null = null;
     console.log("employeeForm.value.employeeDetails[1].userImage.value :-  ",employeeForm.value.employeeDetails[0].userImage.value)
   } 
 
-  // accessShowPrievew(event: any , index:any){
-  //   this.showPreview(event , index)
-  // }
-
   showPreview(event: any , index:any){
-    // this.isChanged =false;
     this.isChanges.splice(index,1,false);
-    // this.isChanges.splice(lessonIndex,1);
     console.log("event  :-  ",event);
     console.log("event.target.files  :-  ",event.target.files);
     let files = event.target.files
     this.fileToUpload = files.item(0);
     if(files){
-      // this.isChanged =true;
       this.isChanges.splice(index,1,true);
       let reader = new FileReader();  
       reader.readAsDataURL(files[0]);
@@ -75,10 +67,8 @@ fileToUpload: File | null = null;
           let imgResult= event.target.result;
           let runInterval = 0;
           const myInterval= setInterval(()=>{
-            // this.isChanged = false;
             this.isChanges.splice(index,1,false);
             runInterval +=1;
-            console.log("isChanged  :-  ",this.isChanged);
             if(runInterval === 1){
               clearInterval(myInterval);
             }
