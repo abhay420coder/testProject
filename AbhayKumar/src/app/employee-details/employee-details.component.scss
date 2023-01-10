@@ -1,0 +1,52 @@
+.select{
+    color: red;
+    height: 200px;
+    background:transparent;
+}
+
+.file-upload{
+	height:180px;
+	width:180px;
+    border-radius: 100%;
+	overflow:hidden;
+	position:relative;
+}
+.file-upload .inp{
+	position:absolute;
+	height:150px;
+	width:150px;
+	left:14px;
+	top:15px;
+	background:transparent;
+	opacity:0;
+    border-radius: 100%;
+
+}
+.file-upload .spin{
+	height:150px;
+	width:150px;
+	margin:15px;
+    border-radius: 100%;
+}
+.file-upload .img{
+	height:150px;
+	width:150px;
+	margin:15px;
+    border-radius: 100%;
+
+}
+
+.deleteIcon{
+    background-image: url('../../assets/icons/delete.svg');
+    background-size: 28PX 29PX;
+    background-repeat: no-repeat;
+    border-color: rgb(240,240,240);
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 23px;
+}
+.flexColumnDirection{
+    display: flex;
+    flex-direction: column-reverse;
+}

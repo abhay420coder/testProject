@@ -2,80 +2,131 @@
 <div>
     <button mat-stroked-button [routerLink]="'/logIn'">Back</button>
 </div>
-<div style="margin:5%;">
-    <div class="_flex-box">
-        <form #form="ngForm" [formGroup]="employeeForm" (ngSubmit)="onSubmitForm(employeeForm)">
-            <ng-container formArrayName="employeeDetails" class="_flex-box">
-                <ng-container *ngFor="let empDetails of employeeDetails.controls; let index = index" >
-                    <!-- <ng-container *ngFor="let empDetails of employeeForm.controls.employeeDetails.controls; let index = index"> -->
-                    <div [formGroupName]="index" style="margin-top:5%;">
-                        <div class="_flex-box">
-                            <div *ngIf="isChanged" class="_pt-10 _pb-10">
-                                <mat-spinner></mat-spinner>
-                            </div>
-                            <input *ngIf="!isChanged" type="image" [src]="employeeForm.controls.employeeDetails.controls[index].get('userImage')?.value" [alt]="index +'   '+ 'userImage'" formControlNames="userImage"
-                                style="height:110px; width:150px; border:5px solid black ">
-                            <input type="file" accept="image/*" (change)="showPreview($event , index)" />
-                        </div>
-                        <div class="_flex-box">
-                            <mat-form-field appearance="outline">
-                                <mat-label>User Name</mat-label>
-                                <input matInput type="text" formControlName="userName">
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userName')?.hasError('required')">
-                                    User Name is required</mat-error>
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userName')?.hasError('invalidContent')">
-                                    write valid user name</mat-error>
-                            </mat-form-field>
-                            <mat-form-field appearance="outline">
-                                <mat-label>User Position</mat-label>
-                                <input matInput type="text" formControlName="userPosition">
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userPosition')?.hasError('required')">
-                                    User Position is required</mat-error>
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userPosition')?.hasError('invalidContent')">
-                                    write valid user Position</mat-error>
-                            </mat-form-field>
-                        </div>
-                        <div class="_flex-box">
-                            <mat-form-field appearance="outline">
-                                <mat-label>User Age</mat-label>
-                                <input matInput type="text" formControlName="userAge">
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userAge')?.hasError('required')">
-                                    User Age is required</mat-error>
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userAge')?.hasError('invalidContent')">
-                                    Age Should be greater than 18</mat-error>
-                            </mat-form-field>
-                            <mat-form-field appearance="outline">
-                                <mat-label>User Gender</mat-label>
-                                <mat-select formControlName="userGender">
-                                    <mat-option value="Male">Male</mat-option>
-                                    <mat-option value="Female">Female</mat-option>
-                                    <mat-option value="Other">Other</mat-option>
-                                </mat-select>
-                                <mat-error
-                                    *ngIf="employeeForm.controls.employeeDetails.controls[index].get('userGender')?.hasError('required')">
-                                    User Age is required</mat-error>
-                            </mat-form-field>
-                        </div>
-                        <div class="_flex-box" style="margin-top:5%;">
-                            <button mat-raised-button color="warn" (click)="deleteEmployee(index)">Delete
-                                Employee</button>
-                        </div>
-                    </div>
-                </ng-container>
 
-            </ng-container>
-            <button mat-raised-button color="warn" [disabled]="employeeForm.invalid" style="margin-top:5%;">submit Form</button>
+<div style="margin: 5%">
+    <div class="">
+        <div class="_flex-box" style="flex-direction: row-reverse;">
+            <button mat-mini-fab (click)="addEmployeeDetails()">
+                <mat-icon class="add-course-btn">add</mat-icon>
+            </button> 
+        </div>
+        <form #form="ngForm" [formGroup]="employeeForm"
+            (ngSubmit)="onSubmitForm(employeeForm)">
+            <div formArrayName="employeeDetails" class="flexColumnDirection">
+                <div *ngFor="let empDetails of employeeDetails.controls; let index= index" >
+                    <!-- <ng-container *ngFor="let empDetails of employeeForm.controls.employeeDetails.controls; let index = index"> -->
+                    <div [formGroupName]="index">
+                        <div class="everyEmpForm _flex-box _jc-sb">
+                            <div class="file-upload">
+                                <!-- class="_pt-10 _pb-10" -->
+                                <div *ngIf="isChanges[index]" class="spin" >
+                                    <mat-spinner></mat-spinner>
+                                </div>  
+                                <input class="img" *ngIf="!isChanged"
+                                    type="image" [src]="employeeForm.controls.employeeDetails.controls[index].get('userImage')?.value" 
+                                    [alt]="index + ' ' + 'userImage'"
+                                    formControlNames="userImage" />
+                                <input class="inp" type="file" accept="image/*"
+                                    (change)="showPreview($event, index)" />
+                            </div>
+
+                            <div class="">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>User Name</mat-label>
+                                    <input matInput type="text"
+                                        formControlName="userName" />
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userName')
+                                        ?.hasError('required')
+                                        ">
+                                        User Name is required</mat-error>
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userName')
+                                        ?.hasError('invalidContent')
+                                        ">
+                                        write valid user name</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>User Position</mat-label>
+                                    <input matInput type="text"
+                                        formControlName="userPosition" />
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userPosition')
+                                        ?.hasError('required')
+                                        ">
+                                        User Position is required</mat-error>
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userPosition')
+                                        ?.hasError('invalidContent')
+                                        ">
+                                        write valid user Position</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="">
+                                <mat-form-field appearance="outline" style="width: 100px;">
+                                    <mat-label>User Age</mat-label>
+                                    <input matInput type="text"
+                                        formControlName="userAge" />
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userAge')
+                                        ?.hasError('required')
+                                        ">
+                                        User Age is required</mat-error>
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userAge')
+                                        ?.hasError('invalidContent')
+                                        ">
+                                        Age Should be greater than 18</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>User Gender</mat-label>
+                                    <mat-select formControlName="userGender">
+                                        <mat-option value="Male">Male</mat-option>
+                                        <mat-option value="Female">Female</mat-option>
+                                        <mat-option value="Other">Other</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="
+                                        employeeForm.controls.employeeDetails.controls[index]
+                                        .get('userGender')
+                                        ?.hasError('required')
+                                        ">
+                                        User Age is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="_flex-box" >
+                                <button mat-icon-button
+                                    (click)="deleteEmployee(index)"
+                                    class="deleteIcon">
+
+                                </button>
+                                <!-- <button mat-icon-button
+                                    (click)="deleteEmployee(index)"
+                                    >
+                                    <mat-icon>delete</mat-icon>
+
+                                </button> -->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <button mat-raised-button color="warn"
+                [disabled]="employeeForm.invalid" style="margin-top: 5%">
+                submit Form
+            </button>
         </form>
     </div>
-    <div style="margin-top:5%;">
-        <button mat-mini-fab (click)="addEmployeeDetails()">
-            <mat-icon class="add-course-btn">add</mat-icon>
-        </button>
-    </div>
+
 </div>
