@@ -47,6 +47,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -55,7 +56,8 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    HomeComponent
   ],
   imports: [
         // all angular material module imported started

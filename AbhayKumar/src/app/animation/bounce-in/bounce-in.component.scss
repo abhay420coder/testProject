@@ -1,0 +1,81 @@
+.relative{
+  position: relative;
+  display: flex;
+  justify-content: center ;
+}
+
+.circle{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 100px;
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 0%);
+  animation-name:bounce-in;
+  animation-duration:1000ms;              
+}
+
+@keyframes bounce-in{
+  0%{
+    top: 0px;
+  }
+  20%{
+    top: 100px;
+  }
+  40%{
+    top: 33px;
+  }
+  65%{
+    top: 100px;
+  }
+  80%{
+    top: 66px;
+  }
+  100%{
+    top: 100px;
+  }
+  
+}
+
+.tiranga{
+  background-color: #F79431;
+  animation-name: republicDay;
+  animation-duration:3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes republicDay {
+  0%{
+  background-color: #F79431;
+  }
+  50%{
+  background-color: white;
+  }
+  100%{
+  background-color: green;
+  }
+}
+
+
+/* 
+
+Property	          Description
+@keyframes	                  Specifies the animation code
+animation	                    A shorthand property for setting all the animation properties
+animation-delay	              Specifies a delay for the start of an animation 
+                              ( in second or in millizecond :- 2s , 3ms , etc)
+animation-direction	          Specifies whether an animation should be played forwards, backwards or in alternate cycles
+                              normal, alternate, reverse, alternate-reverse
+animation-duration	          Specifies how long time an animation should take to complete one cycle
+animation-fill-mode	          Specifies a style for the element when the animation is not playing (before it starts, after it ends, or both)
+animation-iteration-count	    Specifies the number of times an animation should be played
+                              1,2,infinite,etc.
+animation-name	              Specifies the name of the @keyframes animation
+animation-play-state	        Specifies whether the animation is running or paused
+animation-timing-function	    Specifies the speed curve of the animation
+
+
+animation shorthand
+animation: <animation-name> <animation-duration> <animation-timing-function> <animation-delay> <animation-iteration-count> <animation-direction>;
+*/
+
