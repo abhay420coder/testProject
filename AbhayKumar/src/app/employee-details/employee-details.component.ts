@@ -32,7 +32,7 @@ fileToUpload: File | null = null;
       userImage : new FormControl(this.deafultImageSource),
       userName : new FormControl("" , [Validators.required , contentValidatorText]),
       userPosition : new FormControl("" , [Validators.required , contentValidatorText]),
-      userAge : new FormControl("" , [Validators.required, contentValidatorAge]),
+      userAge : new FormControl("" , [Validators.required, this.contentValidatorAge]),
       userGender : new FormControl("" , [Validators.required]),
     })
     empArr.push(empDetails);  // or this.employeeDetails.push(empDetails)
@@ -82,11 +82,11 @@ fileToUpload: File | null = null;
       }
     }
   }
+
+
   
-}
 
-
-export function contentValidatorAge(control: AbstractControl) {
+contentValidatorAge(control: AbstractControl) {
 
   const regex = /[1-9][\d]/; // this is a  regular expression for age
   let value = control.value;
@@ -113,5 +113,10 @@ export function contentValidatorAge(control: AbstractControl) {
   return null; 
 
 }
+  
+
+
+}
+
 
 
