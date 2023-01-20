@@ -6,56 +6,37 @@
 
 .circle{
   position: absolute;
-  height: 50px;
-  width: 50px;
-  top: 100px;
+  height: 30px;
+  width: 30px;
+  top: 50px;
   border-radius: 50%;
   background-color: hsl(0, 0%, 0%);
   animation-name:bounce-in;
-  animation-duration:1000ms;              
+  animation-duration:1s;              
 }
+
 
 @keyframes bounce-in{
   0%{
-    top: 0px;
+    top: 0PX;
   }
   20%{
-    top: 100px;
+    top: 50PX;
   }
   40%{
-    top: 33px;
+    top: 20px;
   }
-  65%{
-    top: 100px;
+  60%{
+    top: 50px;
   }
   80%{
-    top: 66px;
+    top: 35px;
   }
   100%{
-    top: 100px;
+    top: 50px;
   }
   
 }
-
-.tiranga{
-  background-color: #F79431;
-  animation-name: republicDay;
-  animation-duration:3s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes republicDay {
-  0%{
-  background-color: #F79431;
-  }
-  50%{
-  background-color: white;
-  }
-  100%{
-  background-color: green;
-  }
-}
-
 
 /* 
 

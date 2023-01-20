@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnimationComponent } from './animation.component';
 import { BounceInComponent } from './bounce-in/bounce-in.component';
 import { BounceOutComponent } from './bounce-out/bounce-out.component';
+import { OpenCloseComponent } from './open-close/open-close.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   { 
     path: 'bounceOut', 
     component: BounceOutComponent 
+  }, 
+  { 
+    path: 'openClose', 
+    component: OpenCloseComponent 
   }, 
   
 ];
